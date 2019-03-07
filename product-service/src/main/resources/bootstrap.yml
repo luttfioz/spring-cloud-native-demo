@@ -3,4 +3,4 @@ spring:
   name: customer-service
 
 server:
- port: 8062
+ port: 8080
