@@ -55,18 +55,26 @@ Volume ile Container ile ilişkilendirme önemli, bizim işimize yarayacak bilgi
 
 docker container inspect ..container id  
 
-  **2nd Day**  
-  docker run nginx  
-  docker run -p 8050:80 nginx  
-  docker logs ...contId -f ile loglara bakılabilir.  
+**2nd Day**  
+docker run nginx  
+docker run -p 8050:80 nginx  
+docker logs ...contId -f ile loglara bakılabilir.  
 
-  localhost:8050 yazınca dışarıdan erişilmiş olur.  
+localhost:8050 yazınca dışarıdan erişilmiş olur.  
 
-  dockerfile ile paket olusturma  
-  docker build -t image-name  source-dir  
+dockerfile ile image olusturma  
+docker build -t image-name  source-dir  
+docker build -t demo-node . (demo-node adında root dizinde image olusturur)
 
-  docker search node  
+docker search node  
+docker images | grep demo-node
+docker run -p 4567:8081 demo-node (dış porta açıldı. localhost:4567 ile node uygulamamız çalıstı)  
+docker kill ..contId
+  
+mvn package docker:build ile javaya ekledigimiz dockerfile ve spotify docker plugin ile image olusturulur.
 
+docker images (ile listelenir.)  
+docker run -p 8070:8070 orderservice-edu (ile calıstırılır) (dış porta açıldı. localhost:8070 ile java mvc uygulamamız çalıstı)  
 
 
 
