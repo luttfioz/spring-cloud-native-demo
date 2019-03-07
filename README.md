@@ -76,5 +76,60 @@ mvn package docker:build ile javaya ekledigimiz dockerfile ve spotify docker plu
 docker images (ile listelenir.)  
 docker run -p 8070:8070 orderservice-edu (ile calıstırılır) (dış porta açıldı. localhost:8070 ile java mvc uygulamamız çalıstı)  
 
+docker exec ..contId ile container'in içine girebilriz. 
+
+Docker Composer ile yönetim sağlanabilir.  
+
+docker service create --name who-am-i --publish 8000:8000 --replicas 3 training/whoami:latest  
+(docker swarm init)  
+docker service ls  
+docker service scale who-am-i=2 (servisi 2 instance indirir)
+docker service rm (servisi siler)
+
+curl http://localhost:8000
 
 
+
+-----------------------------------
+***********************************
+-----------------------------------
+
+Do not use microservices if not ready
+------
+peak yaptığı dönemler var mı?
+ölçeklenme ihtiyacı var mı?
+development & deploy ihtiyacı var mı?
+
+avantaj sağlamayabilir.
+Golden Hammer patternı vardır, microservices herseyin çözümü değil.
+REST : Resource işlemleri GET,POST,PUT,DELETE vs Method yöntemleri kullanılmalı
+
+Architectural Principles:
+Stateless servisler ölçeklenebilir. Stateful servisleri yapmak zordur.
+HATEOAS yöntemini implement etmek.
+OAUTH2 ile authentication ile yapılır
+
+Spring Rest:
+Design Principles : URI Design
+security token'ı headerda olması gerekir. Body'da pure data olmalı
+
+CAP Triangle
+
+Config server default portu 8888dir  
+localhost:8888/product-service/default
+localhost:8888/product-service/prod
+${MY_ENV:10} şeklinde yml dosyasında değer verilebilir.
+
+Service Discovery and Eureka  default portu 8761dir  
+
+feignClient
+
+single point of failure: load balancer fail ise uygulamalar çalısmaz.  
+
+
+
+
+
+--- Actuator Endpointleri ve Spring Actuator entegrasyonu
+
+Spring Boot Admin diye bir proje var. Log seviyesini değiştirmemizi sağlıyor
