@@ -152,6 +152,37 @@ projeleri calıstırdığımızda localhost:8761/ ile çalısan servislerimizi g
 spring-cloud-starter-eureka clienta eklenerek, 
 @EnableDiscoveryClient ile server ayağa kalkar.
 
+Servisler arası data iletişimini FeignClient ile yapabiliriz. Microservis bağımsız Rest işlemlerimizde kullanabiliriz.
+spring-cloud-starter-feign ekleyebiliriz.
+@EnableFeignClient
+
+Bir servisin feign ile client'ını bir interface oluşturuyoruz.
+@FeignClient(url="http") verip de çağrılabilir. 
+@FeignClient("customer-service") verip de çağrılabilir. 
+JsonNode tipi ile gereric rest objelerini alabiliriz.
+
+
+-----
+Auth : token temelli olması gerekir.Session temelli değil.
+OAuth2 ile token işlemini yapıyoruz. OAuth2 spring server yazıp, access token stringi üretiliyor. Cookie'de ya da Headerda token gönderimi yaplıabilir.
+
+SimpleToken AuthServera gitmesi lazım. JWT gitmiyor. Simple serçilirse fazladan bir Rest servis çağırmak durumundasınız. JWT de ise boyut problemi vardır, AuthServer'a gitmesine gerek yoktur. JWT'yi revoke edemiyoruz, etmek için Redisle bir yapı kurmak gerekebilir.
+-----
+
+Discovery Server'ın Load Balancer seçimini farkını görebilmemiz için Logger ekleyip farklı instance'lara gidebileceğini görelim.
+Farklı instance olabilmesi için port:0 verilir, otomatik port ataması yapılır. product-service ile denedik.
+
+-----
+Client Resiliency with Netflix Hystrix
+Circuit Breaker = timeout'u düşürme mantığını kurar. Hata alıyorsa beklemeni önler.
+spring-cloud-starter-hystrix ekleyebiliriz.
+@HystrixCommand eklenir
+Fallback için @HystrixCommand(fallbackMethod="..") eklenir
+Sprin Retry eklenip denenebilir.
+
+Bulkhead Pattern uygulamak için
+HystrixCommand'a threadpool ayarı yapılabilir.
+
 
 
 
