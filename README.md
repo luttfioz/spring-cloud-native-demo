@@ -133,3 +133,28 @@ single point of failure: load balancer fail ise uygulamalar çalısmaz.
 --- Actuator Endpointleri ve Spring Actuator entegrasyonu
 
 Spring Boot Admin diye bir proje var. Log seviyesini değiştirmemizi sağlıyor
+
+
+
+--- Discovery Server ekleme.
+spring-cloud-starter-netflix-eureka-server
+@EnableEurekaServer ile server ayağa kalkar.
+
+
+spring-cloud-starter-eureka clienta eklenerek, 
+@EnableDiscoveryClient ile server ayağa kalkar.
+​
+projeleri calıstırdığımızda localhost:8761/ ile çalısan servislerimizi görebilriz.
+spring-cloud-starter-eureka clienta eklenerek, 
+@EnableDiscoveryClient ile server ayağa kalkar.
+​
+projeleri calıstırdığımızda localhost:8761/ ile çalısan servislerimizi görebilriz.
+spring-cloud-starter-eureka clienta eklenerek, 
+@EnableDiscoveryClient ile server ayağa kalkar.
+
+
+
+
+
+
+
