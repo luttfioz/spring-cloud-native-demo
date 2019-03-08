@@ -167,6 +167,7 @@ Auth : token temelli olması gerekir.Session temelli değil.
 OAuth2 ile token işlemini yapıyoruz. OAuth2 spring server yazıp, access token stringi üretiliyor. Cookie'de ya da Headerda token gönderimi yaplıabilir.
 
 SimpleToken AuthServera gitmesi lazım. JWT gitmiyor. Simple serçilirse fazladan bir Rest servis çağırmak durumundasınız. JWT de ise boyut problemi vardır, AuthServer'a gitmesine gerek yoktur. JWT'yi revoke edemiyoruz, etmek için Redisle bir yapı kurmak gerekebilir.
+
 -----
 
 Discovery Server'ın Load Balancer seçimini farkını görebilmemiz için Logger ekleyip farklı instance'lara gidebileceğini görelim.
@@ -182,6 +183,59 @@ Sprin Retry eklenip denenebilir.
 
 Bulkhead Pattern uygulamak için
 HystrixCommand'a threadpool ayarı yapılabilir.
+
+-----
+Netflix Zuul
+Routing islemleri yapılır.
+spring-cloud-starter-zuul ekleyebiliriz.
+@EnableZuulProxy
+
+/routes endpointi ile hangi url nereye gidiyor görebiliriz.
+Static routing de yapılabilir. Load Balancing islemi yapar.
+Buna da circuit breaker eklenebilir.
+
+-----
+Gateway ekleme
+zuul + eureka discovery + config client(cloud config) ekledi.
+localhost:9999/order-service/orders ile gateway aracılığı ile cağrılmıs oldu.
+
+docker run -p openzipkin/zipkin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
